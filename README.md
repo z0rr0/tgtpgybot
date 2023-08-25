@@ -1,2 +1,4 @@
-# tgtpgybot
+# TgTGPYBot
+
 Telegram Yandex GPT bot
+
