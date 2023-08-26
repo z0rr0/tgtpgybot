@@ -76,7 +76,7 @@ func TestChatInit(t *testing.T) {
 
 	cfg.Chat.Client = nil
 	cfg.Chat.APIKey = ""
-	
+
 	if err = cfg.Chat.init(); err == nil {
 		t.Errorf("expected error: %#v", cfg.Chat)
 	}

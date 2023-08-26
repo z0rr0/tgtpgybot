@@ -6,7 +6,7 @@ RUN apk --no-cache add ca-certificates tzdata
 WORKDIR /go/src/github.com/z0rr0/tgtpgybot
 COPY . .
 RUN echo "LDFLAGS = $LDFLAGS"
-RUN GOOS=linux go build -ldflags "$LDFLAGS" -o ./tgtpgbot
+RUN GOOS=linux go build -ldflags "$LDFLAGS" -o ./tgtpgybot
 
 FROM alpine:3.18
 LABEL org.opencontainers.image.authors="me@axv.email" \

@@ -8,8 +8,8 @@ import (
 	"runtime"
 	"runtime/debug"
 
-	"git.fwtf.xyz/zorro/tgtpgbot/bot"
-	"git.fwtf.xyz/zorro/tgtpgbot/config"
+	"github.com/z0rr0/tgtpgybot/bot"
+	"github.com/z0rr0/tgtpgybot/config"
 )
 
 // Name is a bot name.
