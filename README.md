@@ -1,4 +1,3 @@
 # TgTGPYBot
 
-Telegram Yandex GPT bot
-
+Telegram Yandex GPT bot.
