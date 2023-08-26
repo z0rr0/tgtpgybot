@@ -1,0 +1,10 @@
+{
+  "token": "xxx",
+  "timeout": "60s",
+  "debug_level": "info",
+  "users": [123456],
+  "chat": {
+    "api_key": "xxx",
+    "proxy": ""
+  }
+}
