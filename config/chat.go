@@ -3,6 +3,7 @@ package config
 import (
 	"context"
 	"fmt"
+	"log/slog"
 	"net/http"
 	"net/url"
 
@@ -42,7 +43,7 @@ func (chat *Chat) init() error {
 }
 
 // Generation generates a new GPT text response.
-func (chat *Chat) Generation(ctx context.Context, text string) (string, error) {
+func (chat *Chat) Generation(ctx context.Context, text string, messageID int) (string, error) {
 	request := &ygpt.ChatRequest{
 		APIKey: chat.APIKey,
 		URL:    chat.URL,
@@ -54,5 +55,6 @@ func (chat *Chat) Generation(ctx context.Context, text string) (string, error) {
 		return "", fmt.Errorf("failed to generate: %w", err)
 	}
 
+	slog.Info("chat generation", "id", messageID, "tokens", resp.Result.NumTokensInt)
 	return resp.String(), nil
 }

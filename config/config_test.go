@@ -97,7 +97,7 @@ func TestChatGeneration(t *testing.T) {
 	expected := "Меня зовут Алиса"
 	ctx := context.Background()
 
-	value, err := chat.Generation(ctx, "Кто ты?")
+	value, err := chat.Generation(ctx, "Кто ты?", 1)
 	if err != nil {
 		t.Fatalf("failed to get completion: %v", err)
 	}

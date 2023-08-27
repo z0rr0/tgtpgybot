@@ -101,9 +101,10 @@ func (c *ChatRequest) marshal() (io.Reader, error) {
 		return nil, err
 	}
 
+	// YandexGPT API is preview, so use only "general" model, Temperature=0 and MaxTokens=2000.
 	chatData := &TextGenerationChat{
 		Model:             ModelGeneral,
-		GenerationOptions: GenerationOptions{Temperature: 1.0, MaxTokens: 2000},
+		GenerationOptions: GenerationOptions{MaxTokens: 2000},
 		Messages:          []Message{{Role: RoleUser, Text: c.Text}},
 	}
 

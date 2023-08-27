@@ -142,7 +142,7 @@ func TestGenerationChatMarshal(t *testing.T) {
 				`"model":"general"`,
 				`"generationOptions":{`,
 				`"partialResults":false`,
-				`"temperature":1`,
+				`"temperature":0`,
 				`"maxTokens":2000`,
 				`"messages":[`,
 				`"role":"User"`,

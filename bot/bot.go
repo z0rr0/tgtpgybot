@@ -87,7 +87,7 @@ func (b *Bot) rootHandler(c telebot.Context) error {
 	ctx, cancel := context.WithTimeout(context.Background(), b.cfg.Timeout.Duration)
 	defer cancel()
 
-	result, err := b.cfg.Chat.Generation(ctx, content)
+	result, err := b.cfg.Chat.Generation(ctx, content, messageID)
 	if err != nil {
 		slog.Error("failed", "id", messageID, "error", err)
 		result = "ERROR: failed to get completion: " + err.Error()

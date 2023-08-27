@@ -5,3 +5,8 @@
 ![License](https://img.shields.io/github/license/z0rr0/tgtpgybot.svg)
 
 Telegram Yandex GPT bot.
+
+## Resources
+
+- [YandexGPT documentation](https://cloud.yandex.ru/docs/yandexgpt/)
+- [YandexGPT API, REST: TextGeneration.chat](https://cloud.yandex.ru/docs/yandexgpt/api-ref/TextGeneration/chat)
