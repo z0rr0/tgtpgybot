@@ -51,6 +51,10 @@ func main() {
 		panic(err)
 	}
 
+	slog.Info(
+		"main", "logging", cfg.DebugLevel,
+		"version", Version, "revision", Revision, "build_date", BuildDate, "go_version", GoVersion,
+	)
 	slog.Info("read config", "config", cfg)
 
 	b, err := bot.New(cfg)
