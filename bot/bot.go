@@ -53,7 +53,6 @@ func (b *Bot) Start(sigChan chan os.Signal) {
 	slog.Info("starting")
 
 	go func() {
-		//sigint := make(chan os.Signal, 1)
 		signal.Notify(sigChan, os.Interrupt, os.Signal(syscall.SIGTERM), os.Signal(syscall.SIGQUIT))
 		s := <-sigChan
 
@@ -93,7 +92,7 @@ func (b *Bot) rootHandler(c telebot.Context) error {
 		result = "ERROR: failed to get completion: " + err.Error()
 	}
 
-	return c.Send(result, &telebot.SendOptions{ParseMode: telebot.ModeMarkdown})
+	return prettyResult(c, messageID, result)
 }
 
 // durationMiddleware is common middleware function to log duration of handler.
@@ -122,4 +121,20 @@ func durationMiddleware() telebot.MiddlewareFunc {
 			return nil
 		}
 	}
+}
+
+func prettyResult(c telebot.Context, messageID int, result string) error {
+	if !strings.Contains(result, "```") {
+		return c.Send(result, &telebot.SendOptions{ParseMode: telebot.ModeDefault})
+	}
+
+	// try markdown
+	err := c.Send(result, &telebot.SendOptions{ParseMode: telebot.ModeMarkdown})
+
+	if err != nil {
+		slog.Info("failed to send markdown", "id", messageID, "error", err)
+		return c.Send(result, &telebot.SendOptions{ParseMode: telebot.ModeDefault})
+	}
+
+	return nil
 }

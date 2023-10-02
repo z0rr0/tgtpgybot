@@ -38,7 +38,7 @@ func TestBot_Start(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	sigChan := make(chan os.Signal, 1)
+	sigChan := make(chan os.Signal)
 
 	go func() {
 		time.Sleep(time.Second)
